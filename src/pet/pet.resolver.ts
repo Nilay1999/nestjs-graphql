@@ -21,4 +21,9 @@ export class PetResolver {
   async createPets(@Args('input') input: PetInput) {
     return this.petService.createPet(input);
   }
+
+  @Mutation(() => CreatePetDto)
+  async deletePet(@Args('id') id: string) {
+    return this.petService.deleteOne(id);
+  }
 }

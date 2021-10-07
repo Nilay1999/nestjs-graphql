@@ -30,4 +30,8 @@ export class PetServices {
     const pet = await this.petModel.findById(id);
     return pet;
   }
+
+  async deleteOne(id) {
+    return await this.petModel.findByIdAndDelete(id);
+  }
 }

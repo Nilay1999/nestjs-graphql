@@ -2,7 +2,7 @@ import { Field, ObjectType, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class CreatePetDto {
-  @Field()
+  @Field({ nullable: true })
   id: string;
 
   @Field()

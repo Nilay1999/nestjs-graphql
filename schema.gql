@@ -3,24 +3,52 @@
 # ------------------------------------------------------
 
 type CreatePetDto {
-  id: String!
+  id: String
   type: String!
   breed: String!
   age: Int!
+}
+
+type CreateCustomerDto {
+  id: String!
+  email: String!
+  username: String!
+  password: String!
+}
+
+type AuthDto {
+  email: String!
+  password: String!
 }
 
 type Query {
   pets: [CreatePetDto!]!
   pet(id: String!): CreatePetDto!
+  getProfile(id: String!): CreateCustomerDto!
+  login(input: AuthInput!): AuthDto!
+}
+
+input AuthInput {
+  email: String!
+  password: String!
 }
 
 type Mutation {
   createPets(input: PetInput!): CreatePetDto!
+  deletePet(id: String!): CreatePetDto!
+  register(input: CustomerInput!): CreateCustomerDto!
 }
 
 input PetInput {
-  id: String!
+  id: String
   type: String!
   breed: String!
   age: Int!
+}
+
+input CustomerInput {
+  id: String
+  username: String!
+  email: String!
+  password: String!
 }
