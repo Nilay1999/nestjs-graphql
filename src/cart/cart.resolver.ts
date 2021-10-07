@@ -12,7 +12,7 @@ export class CartResolver {
     return this.cartService.getCartInfo(customerId);
   }
 
-  @Mutation(() => CreateCartDto)
+  @Mutation((returns) => CreateCartDto)
   async addToCart(cartInput) {
     return this.cartService.addToCart(cartInput);
   }

@@ -14,20 +14,26 @@ export class CartService {
     return cartInfo;
   }
 
-  async addToCart(CreateCartDto: CreateCartDto) {
+  async addToCart(createCartDto: CreateCartDto) {
     const cart = await this.cartModel.findOne({
-      customerId: CreateCartDto.customerId,
+      customerId: createCartDto.customerId,
     });
 
     if (cart) {
-      await this.cartModel.findOneAndUpdate(
-        { customerId: CreateCartDto.customerId },
+      return await this.cartModel.findOneAndUpdate(
+        { customerId: createCartDto.customerId },
         {
           $push: {
-            items: CreateCartDto.items,
+            items: createCartDto.items,
           },
         },
       );
+    } else {
+      const cart = new this.cartModel({
+        customerId: createCartDto.customerId,
+        items: createCartDto.items,
+      });
+      return cart;
     }
   }
 }
