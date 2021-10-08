@@ -6,6 +6,6 @@ export class CreateCartDto {
   @Field()
   customerId: string;
 
-  @Field((type) => [Pet])
+  @Field()
   items: Pet[];
 }

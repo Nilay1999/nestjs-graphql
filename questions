@@ -1,0 +1,48 @@
+- What are the benefits of using Node.js?
+
+- What is Event-loop
+
+- What is concurrency
+
+- If Node.js is single threaded then how it handles concurrency?
+
+- How Node prevents blocking code?
+
+- Find the error in code
+
+function foo(err, callback) {
+if (err) {
+callback(err);
+}
+callback();
+}
+
+- What is Callback Hell?
+
+- What are Event Listeners?
+
+- What is Event Emmitter?
+
+- why we are using JWT and how JWT works in Node Application.
+
+- What is WebSockets?
+
+- Why use WebSocket over Http?
+
+- Suppose you have one application deployed ,
+  In starting time you have 100 active users for your application and system is doing fine.
+  and one day number of active users increased to 10000 ,
+  now your system becomes very slow or system can also fail.
+  what will you do ?
+
+- Difference between monolith arc , microservices arc and serverless arc .
+
+** Database Question **
+
+- 1.Can you explain diff between RDBMS vs non-relational
+
+- 2.Explain Aggregation in MongoDB
+
+- 3.Difference between findOne and find and findById query :
+
+- 4.Explain the term “Indexing” in MongoDB.

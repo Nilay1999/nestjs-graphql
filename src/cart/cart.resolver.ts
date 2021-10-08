@@ -7,13 +7,13 @@ import { CreateCartDto } from './create-cart.dto';
 export class CartResolver {
   constructor(private cartService: CartService) {}
 
-  @Query(() => CreateCartDto)
-  async getCartInfo(@Args('customerId') customerId: string) {
+  @Query(() => CreateCartDto, { nullable: true })
+  async getCartInfo(customerId: string) {
     return this.cartService.getCartInfo(customerId);
   }
 
-  @Mutation((returns) => CreateCartDto)
-  async addToCart(cartInput) {
-    return this.cartService.addToCart(cartInput);
+  @Mutation(() => CreateCartDto, { nullable: true })
+  async addToCart(@Args('input') input: cartInput) {
+    return this.cartService.addToCart(input);
   }
 }
