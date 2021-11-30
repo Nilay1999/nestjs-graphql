@@ -1,16 +1,16 @@
 import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
-export class CustomerInput {
+export class CreateCustomerDto {
   @Field({ nullable: true })
   id: string;
 
-  @Field()
+  @Field(() => String)
   username: string;
 
-  @Field()
+  @Field(() => String)
   email: string;
 
-  @Field()
+  @Field(() => String)
   password: string;
 }

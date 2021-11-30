@@ -2,14 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type CreatePetDto {
-  id: String
+type Pet {
+  id: String!
   type: String!
   breed: String!
-  age: Int!
+  age: String!
 }
 
-type CreateCustomerDto {
+type Customer {
   id: String!
   email: String!
   username: String!
@@ -21,11 +21,17 @@ type AuthDto {
   password: String!
 }
 
+type Cart {
+  customerId: Customer!
+  items: [Pet!]!
+}
+
 type Query {
-  pets: [CreatePetDto!]!
-  pet(id: String!): CreatePetDto!
-  getProfile(id: String!): CreateCustomerDto!
+  pets: [Pet!]!
+  pet(id: String!): Pet!
+  getProfile(id: String!): Customer!
   login(input: AuthInput!): AuthDto!
+  getCartInfo(id: String!): Cart!
 }
 
 input AuthInput {
@@ -34,21 +40,27 @@ input AuthInput {
 }
 
 type Mutation {
-  createPets(input: PetInput!): CreatePetDto!
-  deletePet(id: String!): CreatePetDto!
-  register(input: CustomerInput!): CreateCustomerDto!
+  createPets(input: CreatePetDto!): Pet!
+  deletePet(id: String!): Pet!
+  register(input: CreateCustomerDto!): Customer!
+  addToCart(payload: AddToCartInput!): Cart!
 }
 
-input PetInput {
+input CreatePetDto {
   id: String
   type: String!
   breed: String!
   age: Int!
 }
 
-input CustomerInput {
+input CreateCustomerDto {
   id: String
   username: String!
   email: String!
   password: String!
+}
+
+input AddToCartInput {
+  customerId: String!
+  items: [String!]!
 }

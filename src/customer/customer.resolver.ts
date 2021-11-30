@@ -1,19 +1,19 @@
 import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
-import { CreateCustomerDto } from './create-customer.dto';
+import { Customer } from './customer.model';
 import { CustomerService } from './customer.service';
-import { CustomerInput } from './customer.input';
+import { CreateCustomerDto } from './customer.input';
 
 @Resolver()
 export class CustomerResolver {
   constructor(private customerService: CustomerService) {}
 
-  @Query(() => CreateCustomerDto)
+  @Query(() => Customer)
   async getProfile(@Args('id') id: string) {
     return this.customerService.getCustomerProfile(id);
   }
 
-  @Mutation(() => CreateCustomerDto)
-  async register(@Args('input') input: CustomerInput) {
+  @Mutation(() => Customer)
+  async register(@Args('input') input: CreateCustomerDto) {
     return this.customerService.create(input);
   }
 }

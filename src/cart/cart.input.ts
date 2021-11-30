@@ -1,5 +1,17 @@
 import { InputType, Field } from '@nestjs/graphql';
-import { Pet } from 'src/pet/pet.schema';
+import * as mongoose from 'mongoose';
 
 @InputType()
-export class cartInput {}
+export class AddToCartInput {
+  @Field(() => String)
+  customerId: mongoose.Types.ObjectId;
+
+  @Field(() => [String])
+  items: mongoose.Types.ObjectId[];
+}
+
+@InputType()
+export class GetCartInfo {
+  @Field(() => String)
+  customerId: mongoose.Types.ObjectId;
+}

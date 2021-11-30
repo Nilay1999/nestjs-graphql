@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CartResolver } from './cart.resolver';
-import { Cart, CartSchema } from './cart.schema';
+import { Cart, CartSchema } from './cart.model';
 import { CartService } from './cart.service';
 
 @Module({

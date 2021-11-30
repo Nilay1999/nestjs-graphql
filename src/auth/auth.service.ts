@@ -4,7 +4,7 @@ import {
   Customer,
   CustomerDocument,
   CustomerSchema,
-} from '../customer/customer.schema';
+} from '../customer/customer.model';
 import { Model } from 'mongoose';
 import { AuthInput } from './auth.input';
 import * as bcrypt from 'bcrypt';

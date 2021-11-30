@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Pet, PetDocument } from './pet.schema';
+import { Pet, PetDocument } from './pet.model';
 import { Model } from 'mongoose';
-import { CreatePetDto } from './create-pet.dto';
+import { CreatePetDto } from './pet.input';
 
 @Injectable()
 export class PetServices {

@@ -4,6 +4,8 @@
 
 - What is concurrency
 
+- How REST api works ?
+
 - If Node.js is single threaded then how it handles concurrency?
 
 - How Node prevents blocking code?

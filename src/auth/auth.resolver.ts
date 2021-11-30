@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { JwtService } from '@nestjs/jwt';
 import { Response } from '@nestjs/common';
-import { AuthDto } from './auth.dto';
+import { AuthDto } from './auth.model';
 import { AuthInput } from './auth.input';
 import { AuthService } from './auth.service';
 
